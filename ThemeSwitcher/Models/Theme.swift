@@ -39,9 +39,13 @@ struct ThemeManager {
     static let shared = ThemeManager()
 }
 
-enum Theme: String, CaseIterable {
+enum Theme: String {
     case light
     case dark
+    
+    static var allCases: [Theme] {
+        return [.light, .dark]
+    }
     
     var title: String {
         return rawValue.capitalized
@@ -50,9 +54,9 @@ enum Theme: String, CaseIterable {
     var image: NSImage? {
         switch self {
         case .light:
-            return NSImage(named: NSImage.Name(stringLiteral: "sun"))
+            return NSImage(named: NSImage.Name(rawValue: "sun"))
         case .dark:
-            return NSImage(named: NSImage.Name(stringLiteral: "moon"))
+            return NSImage(named: NSImage.Name(rawValue: "moon"))
         }
     }
     

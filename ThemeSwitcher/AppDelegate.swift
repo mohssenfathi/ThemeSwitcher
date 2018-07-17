@@ -19,10 +19,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         appCoordinator = AppCoordinator(popover: popover)
         
         eventMonitor = EventMonitor(mask: [.leftMouseDown, .rightMouseDown]) { [weak self] event in
-            guard let self = self, self.popover.isShown else {
+            guard let strongSelf = self, strongSelf.popover.isShown else {
                 return
             }
-            self.closePopover(sender: event)
+            strongSelf.closePopover(sender: event)
         }
     }
 

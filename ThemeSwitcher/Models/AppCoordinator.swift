@@ -39,6 +39,6 @@ extension AppCoordinator {
     }
     
     var switchViewController: ThemeListViewController {
-        return NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(stringLiteral: "ThemeListViewController")) as! ThemeListViewController
+        return NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil).instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "ThemeListViewController")) as! ThemeListViewController
     }
 }
